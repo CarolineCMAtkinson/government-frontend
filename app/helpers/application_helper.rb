@@ -6,7 +6,7 @@ module ApplicationHelper
   def t_locale_fallback(key, options = {})
     options["locale"] = I18n.locale
     options[:fallback] = nil
-    translation = I18n.t(key, options)
+    translation = I18n.t(key, **options)
 
     if translation.nil? || translation.include?("translation missing")
       I18n.default_locale
